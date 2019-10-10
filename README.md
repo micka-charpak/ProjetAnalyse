@@ -24,4 +24,5 @@ https://www.datacamp.com/community/tutorials/active-learning
 Introduction to active learning :
 https://www.kdnuggets.com/2018/10/introduction-active-learning.html
 
+ALiPy: Active Learning in Python 
 https://arxiv.org/pdf/1901.03802.pdf
