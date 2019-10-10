@@ -14,3 +14,6 @@ https://towardsdatascience.com/active-learning-tutorial-57c3398e34d
 
 video semi supervised :
 https://www.youtube.com/watch?v=b-yhKUINb7o
+
+Computerphile video about active learning :
+youtube.com/watch?v=ANIw1Mz1SRI
