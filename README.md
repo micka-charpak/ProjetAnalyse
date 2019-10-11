@@ -35,3 +35,8 @@ Active learning :
 https://arxiv.org/pdf/1901.03802.pdf
 
 https://www.geeksforgeeks.org/ml-active-learning/
+
+
+bases de données:
+
+https://mldb.ai/
