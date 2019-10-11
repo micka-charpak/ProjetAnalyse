@@ -22,13 +22,6 @@ https://www.youtube.com/watch?v=b-yhKUINb7o
 Computerphile video about active learning :
 https://www.youtube.com/watch?v=ANIw1Mz1SRI
 
-https://towardsdatascience.com/active-learning-tutorial-57c3398e34d
-
-
-
-
-
-
 How to use active learning to iteratively improve your machine learning models :
 https://medium.com/towards-artificial-intelligence/how-to-use-active-learning-to-iteratively-improve-your-machine-learning-models-1c6164bdab99
 
