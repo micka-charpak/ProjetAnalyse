@@ -1,0 +1,8 @@
+                                      Iris Dataset: composé de 150 données découpées en 3 espèces d'iris.
+
+page wiki décrivant la base de données: https://en.wikipedia.org/wiki/Iris_flower_data_set
+
+from sklearn.datasets import load_iris
+iris=load_iris()
+iris
+
