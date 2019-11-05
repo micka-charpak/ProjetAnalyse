@@ -32,7 +32,7 @@ Introduction active learning :
 https://www.kdnuggets.com/2018/10/introduction-active-learning.html
 
 Active learning :
-https://arxiv.org/pdf/1901.03802.pdf
+https://arxiv.org/pdf/1901.03802.pdf (bibliothèque d'active learning python)
 
 https://www.geeksforgeeks.org/ml-active-learning/
 
