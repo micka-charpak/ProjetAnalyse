@@ -17,6 +17,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 
 
 
+
 with open('petrol_consumption.csv', 'r') as f: #ourvir le fichier qui se trouve au meme emplacement que ce fichier .py
     reader = csv.reader(f) #retourne un objet "lecteur" qui va iterer sur les lignes dans le fichier csv donne. 
     dataset = np.array(list(reader)) #transforme en liste
@@ -60,3 +61,4 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 print(confusion_matrix(y_test,y_pred)) 
 print(classification_report(y_test,y_pred))
 print(accuracy_score(y_test, y_pred))
+print(RandomForestClassifier.predict_proba(y_test, X_test))
