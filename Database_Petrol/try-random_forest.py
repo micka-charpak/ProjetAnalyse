@@ -58,3 +58,4 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 print(confusion_matrix(y_test,y_pred))
 print(classification_report(y_test,y_pred))
 print(accuracy_score(y_test, y_pred))
+print(RandomForestClassifier.predict_proba(y_test, X_test))
