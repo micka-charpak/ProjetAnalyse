@@ -38,5 +38,8 @@ https://www.geeksforgeeks.org/ml-active-learning/
 
 
 bases de données:
-
 https://mldb.ai/
+
+
+lien du code towards datascience:
+https://colab.research.google.com/drive/1Uto5NVxmxzbHHJFb24xgnyP4V_uyvw3n
