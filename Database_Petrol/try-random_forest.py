@@ -11,10 +11,9 @@ import csv
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-
 
 
 with open('petrol_consumption.csv', 'r') as f: #ourvir le fichier qui se trouve au meme emplacement que ce fichier .py
@@ -42,11 +41,10 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 #Mise en place du random forest
-regressor = RandomForestClassifier(n_estimators=20, random_state=0) #resout des problemes de regression via une foret aleatoire
+regressor = RandomForestRegressor(n_estimators=20, random_state=0) #resout des problemes de regression via une foret aleatoire
 #n_estimators definit le nombre d'arbre de la foret aleatoire
 regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
-
 
 
 
@@ -57,6 +55,6 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 
 
 
-print(confusion_matrix(y_test,y_pred)) 
+print(confusion_matrix(y_test,y_pred))
 print(classification_report(y_test,y_pred))
 print(accuracy_score(y_test, y_pred))
