@@ -424,9 +424,11 @@ max_queried = 500
 
 repeats = 1
 
-models = [SvmModel, RfModel, LogModel]
+#models = [SvmModel, RfModel, LogModel]
+models =  [RfModel]
 
-selection_functions = [RandomSelection, MarginSamplingSelection, EntropySelection]
+#selection_functions = [RandomSelection, MarginSamplingSelection, EntropySelection]
+selection_functions = [RandomSelection]
 
 Ks = [250, 125, 50, 25, 10]
 
