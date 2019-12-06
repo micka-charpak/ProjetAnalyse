@@ -1,8 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix
-from sklearn import preprocessing
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 data = pd.read_csv("train.csv")
 cols_throw = ['Name', 'Ticket', 'Cabin', 'Sex', 'Embarked']
@@ -14,7 +13,7 @@ data = data.drop(cols_throw, axis=1)
 data.dropna(inplace=True)
 print(data.shape)
 
-X = data[['Pclass', 'Age', 'SibSp', 'Parch', 'Fare','sex']].values
+X = data[['Pclass', 'Age', 'SibSp', 'Parch','Fare']].values
 y = data['Survived']
 
 # #Create an encoder
@@ -34,10 +33,28 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random
 random_forest = RandomForestClassifier(random_state=0, n_jobs=-1)
 random_forest.fit(X_train, y_train)
 y_predict = random_forest.predict(X_test)
+Predictions = random_forest.predict_proba(X_test)
+print(Predictions)
 
 M = confusion_matrix(y_test, y_predict)
-print('matrice de confusion')
-print(M)
+
+print(len(X))
+
+
+# print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
+# print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
+# print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+#
+#
+# print('matrice de confusion')
+# print(confusion_matrix(y_test,y_pred))
+#
+# print('classification report')
+# print(classification_report(y_test,y_pred))
+#
+#
+# print('accuracy_score')
+# print(accuracy_score(y_test, y_pred))
 
 
 
@@ -48,7 +65,6 @@ print(M)
 
 
 
-if __name__ == '__main__':
 
 
 
