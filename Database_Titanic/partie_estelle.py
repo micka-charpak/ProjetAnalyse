@@ -55,7 +55,7 @@ def download():
     print(data.shape)
     X = data[['Pclass', 'Age', 'SibSp', 'Parch', 'Fare']].values
     y = data['Survived']
-    return (X,y)  
+    return X,y
 
 
 

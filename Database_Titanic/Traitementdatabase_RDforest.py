@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
@@ -15,7 +16,8 @@ print(data.shape)
 
 X = data[['Pclass', 'Age', 'SibSp', 'Parch','Fare']].values
 y = data['Survived']
-
+print(X)
+print(np.delete(X,1,0))
 # #Create an encoder
 # sex_encoder = preprocessing.LabelEncoder()
 #
@@ -27,7 +29,7 @@ y = data['Survived']
 
 
 
-
+'''
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
 random_forest = RandomForestClassifier(random_state=0, n_jobs=-1)
@@ -39,7 +41,7 @@ print(Predictions)
 M = confusion_matrix(y_test, y_predict)
 
 print(len(X))
-
+'''
 
 # print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 # print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
