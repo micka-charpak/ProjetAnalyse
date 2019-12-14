@@ -5,16 +5,16 @@ Created on Fri Dec  6 14:11:54 2019
 @author: Estelle
 """
 
-import os
-import time
-import json
-import pickle
+# import os
+# import time
+# import json
+# import pickle
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
-from scipy import stats
-from pylab import rcParams
+# import matplotlib.pyplot as plt
+# import matplotlib.mlab as mlab
+# from scipy import stats
+# from pylab import rcParams
 from sklearn.utils import check_random_state
 from sklearn.datasets import load_digits
 from sklearn.datasets import fetch_mldata
@@ -35,7 +35,7 @@ from sklearn.metrics import average_precision_score
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, \
-    GradientBoostingClassifier
+     GradientBoostingClassifier
     
     
     
@@ -48,7 +48,7 @@ final_train_size = 451
 
 def download():
     data = pd.read_csv("train.csv")
-    cols_throw = ['Name', 'Ticket', 'Cabin', 'Sex', 'Embarked']
+    cols_throw = ['Name', 'Ticket', 'Cabin', 'Sex', 'Embarked','PassengerId']
     data = data.drop(cols_throw, axis=1)
     data.dropna(inplace=True)
     print('Download progressing ...')
@@ -87,8 +87,8 @@ def randomForest(X_train_initial, y_train_initial, X_left, y_left):
     random_forest.fit(X_train_initial, y_train_initial)
     y_predict = random_forest.predict(X_left)
     prediction = random_forest.predict_proba(X_left)
-    accurancy = accuracy_score(y_left, y_predict)
-    return (X_train_initial, y_train_initial, X_left, y_left, y_predict, prediction, accurancy)
+    accuracy = accuracy_score(y_left, y_predict)
+    return (y_predict, prediction, accuracy)
 
 
     
