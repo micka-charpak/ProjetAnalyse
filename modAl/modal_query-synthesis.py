@@ -15,17 +15,18 @@ from modAL.models import ActiveLearner, Committee
 
 # loading the iris dataset
 iris = load_iris()
+print(iris)
 
 # visualizing the classes
 with plt.style.context('seaborn-white'):
     plt.figure(figsize=(7, 7))
-    pca = PCA(n_components=2).fit_transform(iris['data'])
-    plt.scatter(x=pca[:, 0], y=pca[:, 1], c=iris['target'], cmap='viridis', s=50)
+    pca = PCA(n_components=2).fit_transform(iris['data']) #decomposer en 2 paramètres regroupant plusieurs caracteristiques
+    plt.scatter(x=pca[:, 0], y=pca[:, 1], c=iris['target'], cmap='viridis', s=50) #c correspond à la couleur en fonction de la plante
     plt.title('The iris dataset')
     plt.show()
 
 # generate the pool
-X_pool = deepcopy(iris['data'])
+X_pool = deepcopy(iris['data']) #copie recursive de l'objet initial
 y_pool = deepcopy(iris['target'])
 
 # initializing Committee members
@@ -35,7 +36,7 @@ learner_list = list()
 for member_idx in range(n_members):
     # initial training data
     n_initial = 5
-    train_idx = np.random.choice(range(X_pool.shape[0]), size=n_initial, replace=False)
+    train_idx = np.random.choice(range(X_pool.shape[0]), size=n_initial, replace=False) #random choice
     X_train = X_pool[train_idx]
     y_train = y_pool[train_idx]
 
@@ -71,17 +72,17 @@ with plt.style.context('seaborn-white'):
     plt.title('Committee initial predictions, accuracy = %1.3f' % committee.score(iris['data'], iris['target']))
     plt.show()
 
-    # query by committee
-    n_queries = 10
-    for idx in range(n_queries):
-        query_idx, query_instance = committee.query(X_pool)
-        committee.teach(
-            X=X_pool[query_idx].reshape(1, -1),
-            y=y_pool[query_idx].reshape(1, )
-        )
-        # remove queried instance from pool
-        X_pool = np.delete(X_pool, query_idx, axis=0)
-        y_pool = np.delete(y_pool, query_idx)
+# query by committee
+n_queries = 10
+for idx in range(n_queries):
+    query_idx, query_instance = committee.query(X_pool)
+    committee.teach(
+        X=X_pool[query_idx].reshape(1, -1),
+        y=y_pool[query_idx].reshape(1, )
+    )
+    # remove queried instance from pool
+    X_pool = np.delete(X_pool, query_idx, axis=0)
+    y_pool = np.delete(y_pool, query_idx)
 
 # visualizing the final predictions per learner
 with plt.style.context('seaborn-white'):
