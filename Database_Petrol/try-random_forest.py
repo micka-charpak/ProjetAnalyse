@@ -22,6 +22,7 @@ with open('petrol_consumption.csv', 'r') as f: #ourvir le fichier qui se trouve 
     dataset = dataset[1:,:] # suprime le head
     dataset = dataset[1:,:].astype(np.float)#transforme tous les elements du tableau (string) en float
 
+
 #Division des donnees en attributs et etiquettes
 X = dataset[:, 0:4] #recupere toutes les lignes de la 0e à la 4e colonnes
 y = dataset[:, 4] #recupere toutes les lignes de la 4e colonne
