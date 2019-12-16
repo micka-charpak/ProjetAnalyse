@@ -29,9 +29,10 @@ with plt.style.context('seaborn-white'):
     plt.show()
 
 # initial training data
-train_idx = [0, 50, 100]
+train_idx = [0, 50, 100]      # index des éléments initiaux du training set
 X_train = iris['data'][train_idx]
 y_train = iris['target'][train_idx]
+
 
 # generating the pool
 X_pool = np.delete(iris['data'], train_idx, axis=0)
@@ -54,7 +55,7 @@ with plt.style.context('seaborn-white'):
 print('Accuracy before active learning: %f' % learner.score(iris['data'], iris['target']))
 
 # pool-based sampling
-n_queries = 20
+n_queries = 147
 for idx in range(n_queries):
     query_idx, query_instance = learner.query(X_pool)
     learner.teach(
